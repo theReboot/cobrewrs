@@ -4,20 +4,8 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
+  <p>Want to add or edit services? <a href="https://docs.google.com/a/thereboot.org/spreadsheets/d/1rp5F5LWCuFViPMWWHF1KPrwzEpqwtg7NplZnGrgP4dw/edit?usp=sharing" target="_blank">Here's a link to the Google Sheet</a>.</p>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  <div class="services"></div>
 
 </div>
