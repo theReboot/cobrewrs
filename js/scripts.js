@@ -11,19 +11,23 @@ function init() {
 }
 
 function showInfo(data, tabletop) {
-  console.log(data);
 
   for (var i = 0; i < data.length; i++) {
 
     if (data[i].Active === '0') {
       // nothing on tap
-      console.log("empty");
+      $("#beer"+[i]).addClass("ooo").append('<h2>Out of order</h2>'
+      );
     } else {
       // function for each beer
-
       var beerID = data[i].BIN;
+      var beerStatus = data[i].Status;
       var url = 'https://api.untappd.com/v4/beer/info/' + beerID + requestParameters;
 
+      // find the appropriate div and attach status
+      $("#beer"+ [i]).append('<h2>' + beerStatus + '</h2>');
+
+      // get beer data from Untappd
       $.getJSON(url, function(untappddata) {
 
         var beerName = untappddata.response.beer.beer_name;
@@ -32,16 +36,14 @@ function showInfo(data, tabletop) {
         var beerIBU = untappddata.response.beer.beer_ibu;
         var beerRating = untappddata.response.beer.rating_score;
 
-        $(".beers").append('<div>' +
+        $("#beer" + [i]).append('<div>' +
         '<h2>' + beerName + '</h2>' +
         '<h4>' + beerBrewery + '</h4>' +
         '<p>' + beerABV + '% ABV, IBU ' + beerIBU + '</p>' +
         '<p>Rating: ' + beerRating + '</p>' +
         '</div>'
         );
-
       });
-
     } // end else
   }
 }

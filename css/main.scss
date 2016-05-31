@@ -50,3 +50,19 @@ $on-laptop:        800px;
         "layout",
         "syntax-highlighting"
 ;
+
+.floor {
+  float: left;
+  clear: both;
+  width: 100%;
+  padding: 0;
+}
+
+.beer {
+  width: 50%;
+  float: left;
+}
+
+.ooo {
+  opacity: .3;
+}
