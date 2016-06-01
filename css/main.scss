@@ -72,7 +72,6 @@ html {
 }
 
 .parallax {
-  perspective: 1px;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
@@ -82,7 +81,6 @@ html {
 .parallax__group {
   position: relative;
   height: 100vh;
-  transform-style: preserve-3d;
 }
 
 .parallax__layer {
@@ -101,12 +99,12 @@ html {
     transform: translateX(-50%);
   }
 }
-.parallax__layer--back {
-  transform: translateZ(-2px) scale(3);
-}
-.parallax__layer--mid {
-  transform: translateZ(-1px) scale(2);
-}
+// .parallax__layer--back {
+//   transform: translateZ(-2px) scale(3);
+// }
+// .parallax__layer--mid {
+//   transform: translateZ(-1px) scale(2);
+// }
 
 .onlyText {
   padding-top: 10rem;
