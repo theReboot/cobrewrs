@@ -10,40 +10,95 @@ function init() {
                    simpleSheet: true } )
 }
 
+// function showInfo(data, tabletop) {
+//
+// console.log(data);
+//
+//   for (var i = 0; i < data.length; i++) {
+//
+//
+//
+//     if (data[i].Active === '0') {
+//       // nothing on tap
+//       $("#beer"+[i]).addClass("ooo").append('<h2>Out of order</h2>'
+//       );
+//     } else {
+//       // function for each beer
+//       var beerID = data[i].BIN;
+//       var beerStatus = data[i].Status;
+//       var url = 'https://api.untappd.com/v4/beer/info/' + beerID + requestParameters;
+//
+//       // find the appropriate div and attach status
+//       $("#beer"+ [i]).append('<h2>' + beerStatus + '</h2>');
+//
+//       // get beer data from Untappd
+//       $.getJSON(url, function(untappddata) {
+//
+//         var beerName = untappddata.response.beer.beer_name;
+//         var beerBrewery = untappddata.response.beer.brewery.brewery_name;
+//         var beerABV = untappddata.response.beer.beer_abv;
+//         var beerIBU = untappddata.response.beer.beer_ibu;
+//         var beerRating = untappddata.response.beer.rating_score;
+//
+//         console.log(i);
+//
+//         $("#beer" + [i]).append('<div>' +
+//         '<h2>' + beerName + '</h2>' +
+//         '<h4>' + beerBrewery + '</h4>' +
+//         '<p>' + beerABV + '% ABV, IBU ' + beerIBU + '</p>' +
+//         '<p>Rating: ' + beerRating + '</p>' +
+//         '</div>'
+//         );
+//       });
+//     } // end else
+//   }
+// }
+
 function showInfo(data, tabletop) {
 
-  for (var i = 0; i < data.length; i++) {
+  console.log(data);
 
-    if (data[i].Active === '0') {
-      // nothing on tap
-      $("#beer"+[i]).addClass("ooo").append('<h2>Out of order</h2>'
-      );
-    } else {
-      // function for each beer
-      var beerID = data[i].BIN;
-      var beerStatus = data[i].Status;
-      var url = 'https://api.untappd.com/v4/beer/info/' + beerID + requestParameters;
+  (function() {
+    var i,j;
+    function callback(i) {
+      return function() {
 
-      // find the appropriate div and attach status
-      $("#beer"+ [i]).append('<h2>' + beerStatus + '</h2>');
+        var beerID = data[i].BIN;
+        var beerStatus = data[i].Status;
+        var url = 'https://api.untappd.com/v4/beer/info/' + beerID + requestParameters;
 
-      // get beer data from Untappd
-      $.getJSON(url, function(untappddata) {
 
-        var beerName = untappddata.response.beer.beer_name;
-        var beerBrewery = untappddata.response.beer.brewery.brewery_name;
-        var beerABV = untappddata.response.beer.beer_abv;
-        var beerIBU = untappddata.response.beer.beer_ibu;
-        var beerRating = untappddata.response.beer.rating_score;
+        $.getJSON(url, function(data) {
 
-        $("#beer" + [i]).append('<div>' +
-        '<h2>' + beerName + '</h2>' +
-        '<h4>' + beerBrewery + '</h4>' +
-        '<p>' + beerABV + '% ABV, IBU ' + beerIBU + '</p>' +
-        '<p>Rating: ' + beerRating + '</p>' +
-        '</div>'
+          var beerName = data.response.beer.beer_name;
+          var beerBrewery = data.response.beer.brewery.brewery_name;
+          var beerStyle = data.response.beer.beer_style;
+          var beerABV = data.response.beer.beer_abv;
+          var beerIBU = data.response.beer.beer_ibu;
+          var beerRating = data.response.beer.rating_score;
+          var beerLabel = data.response.beer.beer_label;
+
+          $("#beer" + [i]).append('<div>' +
+            '<img src="' + beerLabel + '" class="thumb" />' +
+            '<h4>' + beerBrewery + '</h4>' +
+            '<h2>' + beerName + '</h2>' +
+            '<p><span class="status">' + beerStatus + '</span></h4>' +
+            '<p><span class="beerStyle">' + beerStyle + '</span></p>' +
+            '<p><span class="beerMeta">' + beerABV + '% ABV</span> | <span class="beerMeta">IBU ' + beerIBU + '</span> | <span class="beerMeta">Rating: ' + beerRating + '</span></p>' +
+            '</div>'
+          );
+        });
+      };
+    }
+
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].Active === '0') {
+        // nothing on tap
+        $("#beer"+[i]).addClass("ooo").append('<h2>Out of order</h2>'
         );
-      });
-    } // end else
-  }
+      } else {
+        setTimeout( callback(i));
+      }
+    }
+  }());
 }
