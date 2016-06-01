@@ -42,6 +42,19 @@ $on-laptop:        800px;
     }
 }
 
+// ignoring the above
+
+@mixin breakpoint($point) {
+  @if $point == papa-bear {
+    @media (max-width: 1600px) { @content; }
+  }
+  @else if $point == mama-bear {
+    @media (max-width: 1250px) { @content; }
+  }
+  @else if $point == baby-bear {
+    @media (max-width: 650px)  { @content; }
+  }
+}
 
 
 // Import partials from `sass_dir` (defaults to `_sass`)
@@ -102,10 +115,6 @@ html {
   min-height: 80vh;
 }
 
-.bgImage {
-
-}
-
 .infoWrap {
   position: absolute;
   top: 50%;
@@ -126,6 +135,12 @@ html {
   overflow: hidden;
   border-radius: 2rem;
   box-shadow: 3px 4px 7px rgba(0,0,0,.3);
+
+  @include breakpoint(baby-bear) {
+    width: 95%;
+    float: none;
+    margin: 0 auto 2rem;
+  }
 }
 
 .beerSpecs {
