@@ -58,12 +58,41 @@ html {
   box-sizing: inherit;
 }
 
-section {
-  min-height: 30rem;
+.parallax {
+  perspective: 1px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
 }
 
-section.floor {
+.parallax__group {
   position: relative;
+  height: 100vh;
+  transform-style: preserve-3d;
+}
+
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  img {
+    height: 100vh;
+    margin: 0 auto;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.parallax__layer--back {
+  transform: translateZ(-2px) scale(3);
+}
+.parallax__layer--mid {
+  transform: translateZ(-1px) scale(2);
 }
 
 .onlyText {
@@ -96,6 +125,7 @@ section.floor {
   float: left;
   overflow: hidden;
   border-radius: 2rem;
+  box-shadow: 3px 4px 7px rgba(0,0,0,.3);
 }
 
 .beerSpecs {
