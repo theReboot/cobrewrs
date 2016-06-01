@@ -33,13 +33,13 @@ function showInfo(data, tabletop) {
           beerRating = beerRating.toFixed(2);
           var beerLabel = data.response.beer.beer_label;
 
-          $("#beer" + [i]).append('<div>' +
+          $("#beer" + [i]).append('<div class="beerSpecs">' +
             '<img src="' + beerLabel + '" class="thumb" />' +
             '<h4>' + beerBrewery + '</h4>' +
             '<h2>' + beerName + '</h2>' +
             '<p><span class="beerMeta">' + beerABV + '% ABV</span> | <span class="beerMeta">IBU ' + beerIBU + '</span> | <span class="beerMeta">Rating: ' + beerRating + '/5.00</span></p>' +
-            '<p><span class="status">' + beerStatus + '</span></h4>' +
-            '</div>'
+            '</div>' +
+            '<div class="status"><p>Status: ' + beerStatus + '</p></div>'
           );
         });
       };
