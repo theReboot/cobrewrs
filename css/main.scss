@@ -51,12 +51,29 @@ $on-laptop:        800px;
         "syntax-highlighting"
 ;
 
-.floor {
+section {
+  min-height: 30rem;
+}
+
+section.floor {
+  position: relative;
+}
+
+.bgImage {
+
+}
+
+.infoWrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
   float: left;
   clear: both;
-  width: 100%;
+  width: 80%;
   padding: 0;
   margin: 0 auto 5rem;
+  background: rgba(255,255,255,.8);
 }
 
 .beer {
@@ -66,13 +83,14 @@ $on-laptop:        800px;
 
 .thumb {
   float: left;
-  padding: 0 1rem 1rem 0;
+  padding: 0 1rem 2rem 0;
 }
 
 h2 {
   font-size: 2rem;
   font-weight: 700;
   line-height: 1;
+  margin: 0 0 .4rem;
 }
 
 h4 {
@@ -83,10 +101,22 @@ h4 {
 
 .status {
   display: block;
-  border-bottom: 1px solid #000;
-  padding-bottom: 1rem;
+  border-top: 1px solid #000;
+  padding-top: 1rem;
 }
 
 .ooo {
   opacity: .3;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.white {
+  color: #fff;
+}
+
+.blueBG {
+  background: #0212C7;
 }
