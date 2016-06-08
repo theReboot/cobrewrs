@@ -21,6 +21,7 @@ function showInfo(data, tabletop) {
 
         var beerID = data[i].BIN;
         var beerStatus = data[i].Status;
+        var beerLastUpdated = data[i].LastUpdated;
         var url = 'https://api.untappd.com/v4/beer/info/' + beerID + requestParameters;
 
         $.getJSON(url, function(data) {
@@ -39,7 +40,7 @@ function showInfo(data, tabletop) {
             '<h2>' + beerName + '</h2>' +
             '<p><span class="beerMeta">' + beerABV + '% ABV</span> | <span class="beerMeta">IBU ' + beerIBU + '</span> | <span class="beerMeta">Rating: ' + beerRating + '/5.00</span></p>' +
             '</div>' +
-            '<div class="status"><p>Status: ' + beerStatus + '</p></div>'
+            '<div class="status"><p>Status: ' + beerStatus + '</p><p class="small">Last Updated: ' + beerLastUpdated + '</p></div>'
           );
         });
       };
