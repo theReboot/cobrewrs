@@ -64,6 +64,9 @@ $on-laptop:        800px;
         "syntax-highlighting"
 ;
 
+@import "variables";
+@import "grid";
+
 html {
   box-sizing: border-box;
 }
@@ -71,72 +74,71 @@ html {
   box-sizing: inherit;
 }
 
-.parallax {
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
+.floor {
   margin: 0;
-}
+  min-height: $floorHeight;
+  float: left;
+  width: 100%;
+  background-size: auto $floorHeight;
+  background-repeat: no-repeat;
+  background-position: center;
 
-.parallax__group {
-  position: relative;
-  height: 100vh;
-}
+  @include breakpoint(baby-bear) {
+    height: auto;
+    background-size: cover;
+  }
 
-.parallax__layer {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  &.secondFloor {
+    background-image: url('../img/2fl_flat.png')
+  }
 
-  img {
-    height: 100vh;
-    margin: 0 auto;
-    display: block;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+  &.firstFloor {
+    background-image: url('../img/1fl_flat.png')
+  }
+
+  &.lowerLevel {
+    background-image: url('../img/0fl_flat.png')
   }
 }
-// .parallax__layer--back {
-//   transform: translateZ(-2px) scale(3);
-// }
-// .parallax__layer--mid {
-//   transform: translateZ(-1px) scale(2);
-// }
 
 .onlyText {
-  padding-top: 10rem;
   padding-top: 35vh;
   min-height: 30rem;
   min-height: 80vh;
+
+  @include breakpoint(baby-bear) {
+    padding-top: 10rem;
+  }
 }
 
 .infoWrap {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  transform: translateY(-50%);
   float: left;
   clear: both;
   width: 80%;
   padding: 0;
-  margin: 0 auto 5rem;
+  margin: 50vh auto 5rem;
+
+  @include breakpoint(baby-bear) {
+    width: 100%;
+    transform: none;
+    margin-top: 3rem;
+  }
 
 }
 
 .beer {
-  width: 45%;
+  width: 23rem;
   margin: 0 2.5%;
   float: left;
   overflow: hidden;
-  border-radius: 2rem;
+  border-radius: 0 0 2rem 2rem;
   box-shadow: 3px 4px 7px rgba(0,0,0,.3);
 
   @include breakpoint(baby-bear) {
-    width: 95%;
+    width: 85%;
     float: none;
+    display: block;
     margin: 0 auto 2rem;
   }
 }
@@ -144,10 +146,12 @@ html {
 .beerSpecs {
   padding: 1rem 2rem;
   background: rgba(255,255,255,.8);
+  min-height: 18rem;
 }
 
 .thumb {
   margin: 1rem auto;
+  width: 6rem;
   display: block;
 }
 
@@ -163,7 +167,7 @@ html {
 }
 
 h1 {
-  font-family: 'Merriweather', serif;
+  font-family: $merriweather;
   font-size: 1.5rem;
 
   .onlyText & {
@@ -174,6 +178,7 @@ h1 {
 h2,
 h4,
 p {
+  font-family: $proximaNova;
   text-align: center;
 }
 
@@ -181,15 +186,17 @@ h2 {
   font-size: 2rem;
   font-weight: 700;
   line-height: 1;
-  margin: 0 0 .4rem;
+  margin: 0;
   border-bottom: 1px solid #000;
   padding-bottom: 1rem;
 }
 
 h4 {
+  font-family: $merriweather;
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 0rem;
+  color: $grey;
 }
 
 .small {
@@ -198,6 +205,24 @@ h4 {
 
 .status {
   display: block;
+}
+
+.beerMeta {
+  font-family: $proximaNova;
+  font-size: 1.5rem;
+  padding-top: .7rem;
+  border-left: 1px solid #000;
+
+  &:first-child {
+    border-left: 0;
+  }
+
+  &::first-line {
+    font-family: $merriweather;
+    font-size: 1rem;
+    color: $grey;
+    line-height: 1;
+  }
 }
 
 .ooo {
@@ -232,4 +257,8 @@ button {
   a {
     display: block;
   }
+}
+
+.clearfix {
+  clear: both !important;
 }
