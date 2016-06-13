@@ -38,7 +38,7 @@ function showInfo(data, tabletop) {
             '<img src="' + beerLabel + '" class="thumb" />' +
             '<h4>' + beerBrewery + '</h4>' +
             '<h2>' + beerName + '</h2>' +
-            '<p><span class="beerMeta">' + beerABV + '% ABV</span> | <span class="beerMeta">IBU ' + beerIBU + '</span> | <span class="beerMeta">Rating: ' + beerRating + '/5.00</span></p>' +
+            '<div class="grid"><div class="col-1-3 beerMeta"><p>ABV<br />' + beerABV + '%</p></div><div class="col-1-3 beerMeta"><p>IBU<br />' + beerIBU + '</p></div><div class="col-1-3 beerMeta"><p>Rating:<br />' + beerRating + '/5.00</p></div></div>' +
             '</div>' +
             '<div class="status"><p>Status: ' + beerStatus + '</p><p class="small">Last Updated: ' + beerLastUpdated + '</p></div>'
           );
@@ -49,7 +49,12 @@ function showInfo(data, tabletop) {
     for (var i = 0; i < data.length; i++) {
       if (data[i].Active === '0') {
         // nothing on tap
-        $("#beer"+[i]).addClass("ooo").append('<h2>Out of order</h2>'
+        $("#beer" + [i]).append('<div class="beerSpecs">' +
+          '<img src="/img/ooo.png" class="thumb" />' +
+          '<h2>Out of Order</h2>' +
+          //'<p><span class="beerMeta">' + beerABV + '% ABV</span> | <span class="beerMeta">IBU ' + beerIBU + '</span> | <span class="beerMeta">Rating: ' + beerRating + '/5.00</span></p>' +
+          '</div>' +
+          '<div class="status"><p>Status: out of order</p></div>'
         );
       } else {
         setTimeout( callback(i));
