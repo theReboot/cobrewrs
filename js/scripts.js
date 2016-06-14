@@ -31,16 +31,32 @@ function showInfo(data, tabletop) {
           var beerABV = data.response.beer.beer_abv;
           var beerIBU = data.response.beer.beer_ibu;
           var beerRating = data.response.beer.rating_score;
+          var beerRatingPercent = (beerRating/5)*100;
           beerRating = beerRating.toFixed(2);
           var beerLabel = data.response.beer.beer_label;
 
-          $("#beer" + [i]).append('<div class="beerSpecs">' +
-            '<img src="' + beerLabel + '" class="thumb" />' +
+          $("#beer" + [i]).append('<div class="beerSpecs">\
+            <img src="' + beerLabel + '" class="thumb" />' +
             '<h4>' + beerBrewery + '</h4>' +
             '<h2>' + beerName + '</h2>' +
-            '<div class="grid"><div class="col-1-3 beerMeta"><p class="label">ABV</p><p>' + beerABV + '%</p></div><div class="col-1-3 beerMeta"><p class="label">IBU</p><p>' + beerIBU + '</p></div><div class="col-1-3 beerMeta"><p class="label">Rating:</p><p>' + beerRating + '/5.00</p></div></div>' +
-            '</div>' +
-            '<div class="status"><p>Status: ' + beerStatus + '</p><p class="small">Last Updated: ' + beerLastUpdated + '</p></div>'
+            '<div class="grid">\
+            <div class="col-1-4 beerMeta">\
+            <p class="label">ABV</p><p>' + beerABV + '%</p>\
+            </div>\
+            <div class="col-1-4 beerMeta">\
+            <p class="label">IBU</p><p>' + beerIBU + '</p>\
+            </div>\
+            <div class="col-1-2 beerMeta">\
+            <p class="label">Rating:</p>\
+            <div class="star-rating">\
+              <div class="star-rating-top" style="width:' + beerRatingPercent + '%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>\
+              <div class="star-rating-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>\
+            </div>\
+            <p class="small">' + beerRating + '/5.00</p>\
+            </div>\
+            </div>\
+            </div>\
+            <div class="status"><p>Status: ' + beerStatus + '</p><p class="small">Last Updated: ' + beerLastUpdated + '</p></div>'
           );
         });
       };
