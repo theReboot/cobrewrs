@@ -36,7 +36,6 @@
 .onlyText {
   padding-top: 35vh;
   min-height: 30rem;
-  min-height: 80vh;
 
   @include breakpoint(baby-bear) {
     padding-top: 10rem;
