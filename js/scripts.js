@@ -56,7 +56,7 @@ function showInfo(data, tabletop) {
             </div>\
             </div>\
             </div>\
-            <div class="status"><p>Status: ' + beerStatus + '</p><p class="small">Last Updated: ' + beerLastUpdated + '</p></div>'
+            <div class="status"><p>Status: <strong>' + beerStatus + '</strong></p><p class="small">Last Updated: ' + beerLastUpdated + '</p></div>'
           );
         });
       };
@@ -65,12 +65,16 @@ function showInfo(data, tabletop) {
     for (var i = 0; i < data.length; i++) {
       if (data[i].Active === '0') {
         // nothing on tap
+
+        var beerStatus = data[i].Status;
+        var beerLastUpdated = data[i].LastUpdated;
+
         $("#beer" + [i]).append('<div class="beerSpecs">' +
-          '<div class="thumb ooo"></div>' +
-          '<h2>Out of Order</h2>' +
-          //'<p><span class="beerMeta">' + beerABV + '% ABV</span> | <span class="beerMeta">IBU ' + beerIBU + '</span> | <span class="beerMeta">Rating: ' + beerRating + '/5.00</span></p>' +
-          '</div>' +
-          '<div class="status"><p>Status: out of order</p></div>'
+          '<div class="thumb ooo"></div>\
+          <h2>Out of Order</h2>\
+          </div>\
+          <div class="status"><p>Status: <strong>' + beerStatus + '</strong></p><p class="small">Last Updated: ' + beerLastUpdated + '</p>\
+          </div>'
         );
       } else {
         setTimeout( callback(i));
