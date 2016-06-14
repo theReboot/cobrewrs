@@ -13,7 +13,7 @@
   width: 100%;
   background-size: auto $floorHeight;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center top;
 
   @include breakpoint(baby-bear) {
     background-size: cover;
@@ -34,7 +34,7 @@
 }
 
 .onlyText {
-  padding-top: 10rem;
+  padding: 10rem 0;
   min-height: 30rem;
 }
 
@@ -160,14 +160,33 @@ h4 {
   font-family: $sansSerif;
   font-size: 1.4rem;
   padding-top: .7rem;
-  border-left: 1px solid #000;
+  // border-left: 1px solid #000;
+  position: relative;
 
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 1.4rem;
+    background: #000;
+  }
+
+  // first element doesn't have a left border
   &:first-child {
-    border-left: 0;
+    &::after {
+      width: 0;
+    }
+  }
+
+  &.col-1-4,
+  &.col-1-2 {
+    padding-right: 0;
   }
 
   p {
     margin: 0;
+    text-align: center;
   }
 }
 
