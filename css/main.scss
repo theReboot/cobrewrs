@@ -17,6 +17,7 @@
 
   @include breakpoint(baby-bear) {
     background-size: cover;
+    padding: 2rem 0;
   }
 
   &.secondFloor {
