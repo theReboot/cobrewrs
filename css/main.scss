@@ -1,90 +1,20 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
-@charset "utf-8";
-
-
-
-// Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
-
-$spacing-unit:     30px;
-
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
-
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-
-// Width of the content area
-$content-width:    800px;
-
-$on-palm:          600px;
-$on-laptop:        800px;
-
-
-
-// Using media queries with like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
-}
-
-// ignoring the above
-
-@mixin breakpoint($point) {
-  @if $point == papa-bear {
-    @media (max-width: 1600px) { @content; }
-  }
-  @else if $point == mama-bear {
-    @media (max-width: 1250px) { @content; }
-  }
-  @else if $point == baby-bear {
-    @media (max-width: 650px)  { @content; }
-  }
-}
-
-
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
 
 @import "variables";
 @import "grid";
 
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
 
 .floor {
   margin: 0;
   min-height: $floorHeight;
-  float: left;
   width: 100%;
   background-size: auto $floorHeight;
   background-repeat: no-repeat;
   background-position: center;
 
   @include breakpoint(baby-bear) {
-    height: auto;
     background-size: cover;
   }
 
@@ -111,34 +41,35 @@ html {
   }
 }
 
+// this is the container for each beer info module
+
 .infoWrap {
-  transform: translateY(-50%);
-  float: left;
-  clear: both;
   width: 80%;
+  min-height: 100vh;
   padding: 0;
-  margin: 50vh auto 5rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   @include breakpoint(baby-bear) {
-    width: 100%;
-    transform: none;
+    width: 85%;
     margin-top: 3rem;
+    flex-direction: column;
   }
-
 }
+
+// this is the individual beer module
 
 .beer {
   width: 23rem;
-  margin: 0 2.5%;
-  float: left;
+  margin: 0 2rem;
   overflow: hidden;
   border-radius: 0 0 2rem 2rem;
   box-shadow: 3px 4px 7px rgba(0,0,0,.3);
 
   @include breakpoint(baby-bear) {
-    width: 85%;
-    float: none;
-    display: block;
+    width: 100%;
     margin: 0 auto 2rem;
   }
 }
@@ -153,11 +84,18 @@ html {
   margin: 1rem auto;
   width: 6rem;
   display: block;
+
+  // if a beer is Out of Order this class is applied to the thumb div
+  &.ooo {
+    height: 6rem;
+    background: url('../img/ooo.png');
+    background-size: contain;
+  }
 }
 
 .status {
   width: 100%;
-  background: #0212C7;
+  background: $blue;
   padding: 1rem 2rem;
 
   p {
@@ -207,6 +145,15 @@ h4 {
   display: block;
 }
 
+.label {
+  font-family: $merriweather;
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: $grey;
+  line-height: 1.2;
+}
+
 .beerMeta {
   font-family: $proximaNova;
   font-size: 1.5rem;
@@ -217,11 +164,8 @@ h4 {
     border-left: 0;
   }
 
-  &::first-line {
-    font-family: $merriweather;
-    font-size: 1rem;
-    color: $grey;
-    line-height: 1;
+  p {
+    margin: 0;
   }
 }
 
@@ -238,25 +182,20 @@ h4 {
 }
 
 .blueBG {
-  background: #0212C7;
+  background: $blue;
 }
 
-button {
-  background: none;
+.button {
   display: block;
   text-align: center;
-  font-family: 'Merriweather', serif;
+  font-family: $merriweather;
   color: #fff;
   font-size: 1rem;
   border: 2px solid #fff;
   text-decoration: none;
   padding: 1rem 2rem;
   margin: 2rem auto;
-  cursor: pointer;
-
-  a {
-    display: block;
-  }
+  width: 20rem;
 }
 
 .clearfix {
