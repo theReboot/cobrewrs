@@ -6,6 +6,9 @@
 @import "variables";
 @import "grid";
 
+section {
+  padding-left: $navWidth;
+}
 
 .floor {
   margin: 0;
@@ -33,8 +36,54 @@
   }
 }
 
+nav {
+  width: $navWidth;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  @include breakpoint(baby-bear) {
+    height: 3.5rem;
+    width: 100%;
+    flex-direction: row;
+
+  }
+
+  a {
+    display: block;
+    margin: 0 auto;
+    font-family: $sansSerif;
+    transition: .2s all ease;
+
+    &:active,
+    &:visited,
+    &:link {
+      text-decoration: none;
+      color: $grey;
+    }
+  }
+
+  // doubled for specificity
+  .nav-active.nav-active {
+    color: $blue;
+  }
+
+  em {
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+}
+
+
 .onlyText {
-  padding: 10rem 0;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
   min-height: 30rem;
 }
 
