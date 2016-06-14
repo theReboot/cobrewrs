@@ -8,6 +8,10 @@
 
 section {
   padding-left: $navWidth;
+
+  @include breakpoint(baby-bear) {
+    padding-left: 0;
+  }
 }
 
 .floor {
@@ -47,6 +51,7 @@ nav {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  z-index: 5;
 
   @include breakpoint(baby-bear) {
     height: 3.5rem;
