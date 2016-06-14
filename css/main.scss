@@ -34,12 +34,8 @@
 }
 
 .onlyText {
-  padding-top: 35vh;
+  padding-top: 10rem;
   min-height: 30rem;
-
-  @include breakpoint(baby-bear) {
-    padding-top: 10rem;
-  }
 }
 
 // this is the container for each beer info module
