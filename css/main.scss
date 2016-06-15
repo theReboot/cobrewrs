@@ -65,6 +65,8 @@ nav {
     margin: 0 auto;
     font-family: $sansSerif;
     transition: .2s all ease;
+    padding-bottom: .6rem;
+    position: relative;
 
     &:active,
     &:visited,
@@ -72,11 +74,27 @@ nav {
       text-decoration: none;
       color: $grey;
     }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: $blue;
+      transition: .4s width;
+    }
   }
 
   // doubled for specificity
   .nav-active.nav-active {
     color: $blue;
+    transition: .2s all ease;
+
+    &::after {
+      width: 100%;
+    }
   }
 
   em {
