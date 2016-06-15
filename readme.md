@@ -24,11 +24,11 @@ The sheet contains the info about Coworkrs' beer, and is maintained by anyone in
 
 To find the Beer Identificaiton Number (BIN), navigate to [Untappd's website](untappd.com/breweries), and use their search bar to find the beer you're looking for.
 
-![Untappd search]({{ site.baseurl }}/img/readme/search.png)
+![Untappd search]({{ site.url }}/img/readme/search.png)
 
 Click the beer from the search dropdown menu, to navigate to the beer's page. The BIN is located in this page's URL. It's a string of numbers _(usually 3–6 digits)_ at the end of the URL.
 
-![Untappd beer page]({{ site.baseurl }}/img/readme/beer.png)
+![Untappd beer page]({{ site.url }}/img/readme/beer.png)
 
 ##Untappd API
 Beer data is pulled from the Untapped API with the BIN. A request is made each time the page is loaded, and the info isn't stored anywhere. This isn't the smartest way of accomplishing this task, particularly because Untappd limits the number of API calls each key can make:
