@@ -218,10 +218,8 @@ nav {
 h1 {
   font-family: $merriweather;
   font-size: 2rem;
-
-  .onlyText & {
-    text-align: center;
-  }
+  line-height: 1.2;
+  text-align: center;
 }
 
 h2,
@@ -361,8 +359,4 @@ strong {
   padding: 1rem 2rem;
   margin: 2rem auto;
   width: 20rem;
-}
-
-.clearfix {
-  clear: both !important;
 }

@@ -10,3 +10,7 @@ github_username:  thereboot
 
 # Build settings
 markdown: kramdown
+gems:
+  - octopress-autoprefixer
+sass:
+  style: compressed
