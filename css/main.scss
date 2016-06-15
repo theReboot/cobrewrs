@@ -145,7 +145,7 @@ nav {
 
 .beerSpecs {
   padding: 1rem 2rem;
-  background: rgba(255,255,255,.8);
+  background: rgba(255,255,255,1);
   min-height: 18rem;
 }
 
@@ -270,7 +270,6 @@ h4 {
   margin: 0 auto .4rem;
   position: relative;
   padding: 0;
-  text-shadow: 0px 1px 0 #a2a2a2;
   font-size: $starSize;
 
   &-top {
