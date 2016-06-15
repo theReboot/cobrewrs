@@ -33,6 +33,7 @@ Click the beer from the search dropdown menu, to navigate to the beer's page. Th
 ##Untappd API
 Beer data is pulled from the Untapped API with the BIN. A request is made each time the page is loaded, and the info isn't stored anywhere. This isn't the smartest way of accomplishing this task, particularly because Untappd limits the number of API calls each key can make:
 >All API applications are rate-limited to protect aganist abuse and keep the platform healthly. The default limit for API access is 100 calls per hour per key.
+
 Better solutions are welcomed!
 
 ---
