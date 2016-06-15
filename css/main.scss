@@ -31,6 +31,7 @@ section {
   &.secondFloor {
     background-image: url('../img/2fl_flat.png');
     margin-top: $introHeight;
+    border-top: 10px solid $blue;
 
     @include breakpoint(baby-bear) {
       margin-top: 0;
