@@ -71,7 +71,7 @@ function showInfo(data, tabletop) {
 
         $("#beer" + [i]).append('<div class="beerSpecs">' +
           '<div class="thumb ooo"></div>\
-          <h2>Out of Order</h2>\
+          <h2 class="ooo">Out of Order</h2>\
           </div>\
           <div class="status"><p>Status: <strong>' + beerStatus + '</strong></p><p class="small">Last Updated: ' + beerLastUpdated + '</p>\
           </div>'

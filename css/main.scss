@@ -21,6 +21,7 @@ section {
   background-size: auto $floorHeight;
   background-repeat: no-repeat;
   background-position: center top;
+  background-color: $lightGrey;
 
   @include breakpoint(baby-bear) {
     background-size: cover;
@@ -28,15 +29,63 @@ section {
   }
 
   &.secondFloor {
-    background-image: url('../img/2fl_flat.png')
+    background-image: url('../img/2fl_flat.png');
+    margin-top: $introHeight;
+
+    @include breakpoint(baby-bear) {
+      margin-top: 0;
+    }
   }
 
   &.firstFloor {
-    background-image: url('../img/1fl_flat.png')
+    background-image: url('../img/1fl_flat.png');
   }
 
   &.lowerLevel {
-    background-image: url('../img/0fl_flat.png')
+    background-image: url('../img/0fl_flat.png');
+    margin-bottom: $introHeight;
+
+    @include breakpoint(baby-bear) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.intro,
+.conclusion {
+  display: flex;
+  width: 100%;
+  height: $introHeight;
+  position: fixed;
+  z-index: -1;
+  justify-content: center;
+  align-items: center;
+
+  @include breakpoint(baby-bear) {
+    position: static;
+  }
+}
+
+.intro {
+  top: 0;
+  background: $lightGrey;
+
+  @include breakpoint(baby-bear) {
+    padding-top: 3.5rem;
+  }
+
+  h1 {
+    color: $blue;
+  }
+}
+
+.conclusion {
+  bottom: 0;
+  flex-direction: column;
+  background: $blue;
+
+  h1 {
+    color: #fff;
   }
 }
 
@@ -57,7 +106,6 @@ nav {
     height: 3.5rem;
     width: 100%;
     flex-direction: row;
-
   }
 
   a {
@@ -101,13 +149,6 @@ nav {
     font-weight: 700;
     font-size: 1.2rem;
   }
-}
-
-
-.onlyText {
-  padding-top: 10rem;
-  padding-bottom: 10rem;
-  min-height: 30rem;
 }
 
 // this is the container for each beer info module
@@ -159,13 +200,14 @@ nav {
     height: 6rem;
     background: url('../img/ooo.png');
     background-size: contain;
+    margin-top: 2.5rem;
   }
 }
 
 .status {
   width: 100%;
   background: $blue;
-  padding: 1rem 2rem;
+  padding: .8rem 2rem 1rem;
 
   p {
     color: #fff;
@@ -175,7 +217,7 @@ nav {
 
 h1 {
   font-family: $merriweather;
-  font-size: 1.5rem;
+  font-size: 2rem;
 
   .onlyText & {
     text-align: center;
@@ -186,7 +228,7 @@ h2,
 h4,
 p {
   font-family: $sansSerif;
-  text-align: center;
+  text-align: left;
 }
 
 h2 {
@@ -196,6 +238,10 @@ h2 {
   margin: 0;
   border-bottom: 1px solid #000;
   padding-bottom: 1rem;
+
+  &.ooo {
+    text-align: center;
+  }
 }
 
 h4 {
@@ -223,7 +269,7 @@ h4 {
   font-family: $merriweather;
   font-size: .7rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   color: $grey;
   margin-bottom: .3rem;
 }
@@ -264,7 +310,7 @@ h4 {
 
 .star-rating {
   unicode-bidi: bidi-override;
-  color: #c5c5c5;
+  color: $lightGrey;
   height: $starSize;
   width: calc(#{$starSize} * 5);
   margin: 0 auto .4rem;
@@ -273,7 +319,7 @@ h4 {
   font-size: $starSize;
 
   &-top {
-    color: #e7711b;
+    color: $blue;
     padding: 0;
     position: absolute;
     z-index: 1;
@@ -302,10 +348,6 @@ strong {
 
 .white {
   color: #fff;
-}
-
-.blueBG {
-  background: $blue;
 }
 
 .button {
