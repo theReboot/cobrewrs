@@ -20,9 +20,9 @@ The sheet contains the info about Coworkrs' beer, and is maintained by anyone in
 - **Status**: A more detailed explanation of what's happening with the beer _(e.g. Good, or almost empty)_.
 - **LastUpdated**: This column should not be edited. It is automatically updated whenever a change is made to either the BIN column, or the Status column.
 
-###Finding the  Identification Number
+###Finding the Beer Identification Number (BIN)
 
-To find the Beer Identificaiton Number (BIN), navigate to [Untappd's website](untappd.com/breweries), and use their search bar to find the beer you're looking for.
+To find the BIN, navigate to [Untappd's website](untappd.com/breweries), and use their search bar to locate the beer you're looking for.
 
 ![Untappd search](http://thereboot.github.io/rebrews/img/readme/search.png)
 
