@@ -88,6 +88,19 @@ section {
   h1 {
     color: #fff;
   }
+
+  p {
+    font-style: italic;
+
+    a {
+      &:link,
+      &:active,
+      &:visited {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 nav {
