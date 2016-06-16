@@ -1,5 +1,7 @@
 #Rebrews: Coworkrs Beer Tracker
 
+Site here: [bit.ly/coworkrsbeer](http://bit.ly/coworkrsbeer)
+
 Rebrews is a simple application to keep you up to date with what's on tap at Coworkrs Gowanus. It's a static [Jekyll](https://jekyllrb.com/) site, running on [Github pages](https://pages.github.com/).
 
 The content is pulled from two sources:
