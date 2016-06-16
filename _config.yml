@@ -3,8 +3,8 @@ title: Rebrews
 email: adam.parker@reboot.org
 description: > # this means to ignore newlines until "baseurl:"
   Keeping you up to date with what's on tap at Coworkrs.
-baseurl: "http://thereboot.github.io/rebrews" # the subpath of your site, e.g. /blog/
-url: "http://thereboot.github.io/rebrews" # the base hostname & protocol for your site
+baseurl: "http://thereboot.github.io/cobrewrs" # the subpath of your site, e.g. /blog/
+url: "http://thereboot.github.io/cobrewrs" # the base hostname & protocol for your site
 twitter_username: thereboot
 github_username:  thereboot
 
