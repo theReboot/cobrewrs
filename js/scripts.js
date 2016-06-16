@@ -2,6 +2,7 @@ window.onload = function() { init() };
 
 // global var
 var requestParameters = '?client_id=7665C24D5D9B86BD78146E89DED1A50440A56D43&client_secret=C5F5D761BB5AFFBB02A05F7C23A86AAC157CECE0';
+
 var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1kwgYEHQT0BPk_-pSerQDmLQslBwceMN93LXfFSdwQu8/pubhtml';
 
 function init() {
@@ -35,7 +36,7 @@ function showInfo(data, tabletop) {
           beerRating = beerRating.toFixed(2);
           var beerLabel = data.response.beer.beer_label;
 
-          $("#beer" + [i]).append('<div class="beerSpecs">\
+          var beerModuleContent = '<div class="beerSpecs">\
             <img src="' + beerLabel + '" class="thumb" />' +
             '<h4>' + beerBrewery + '</h4>' +
             '<h2>' + beerName + '</h2>' +
@@ -57,7 +58,10 @@ function showInfo(data, tabletop) {
             </div>\
             </div>\
             <div class="status"><p>Status: <strong>' + beerStatus + '</strong></p><p class="small">Last Updated: ' + beerLastUpdated + '</p></div>'
-          );
+
+          $(beerModuleContent).hide().appendTo("#beer" + [i]).fadeIn(500);
+
+          // $("#beer" + [i]).append(beerModuleContent);
         });
       };
     }
@@ -68,14 +72,15 @@ function showInfo(data, tabletop) {
 
         var beerStatus = data[i].Status;
         var beerLastUpdated = data[i].LastUpdated;
-
-        $("#beer" + [i]).append('<div class="beerSpecs">' +
+        var beerModuleContentEmpty = '<div class="beerSpecs">' +
           '<div class="thumb ooo"></div>\
           <h2 class="ooo">Out of Order</h2>\
           </div>\
           <div class="status"><p>Status: <strong>' + beerStatus + '</strong></p><p class="small">Last Updated: ' + beerLastUpdated + '</p>\
           </div>'
-        );
+
+      $(beerModuleContentEmpty).hide().appendTo("#beer" + [i]).fadeIn(500);
+
       } else {
         setTimeout( callback(i));
       }
