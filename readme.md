@@ -1,8 +1,8 @@
-#Rebrews: Coworkrs Beer Tracker
+#Cobrews: The Coworkrs Beer Tracker
 
 Site here: [bit.ly/coworkrsbeer](http://bit.ly/coworkrsbeer)
 
-Rebrews is a simple application to keep you up to date with what's on tap at Coworkrs Gowanus. It's a static [Jekyll](https://jekyllrb.com/) site, running on [Github pages](https://pages.github.com/).
+Cobrews is a simple application to keep you up to date with what's on tap at Coworkrs Gowanus. It's a static [Jekyll](https://jekyllrb.com/) site, running on [Github pages](https://pages.github.com/).
 
 The content is pulled from two sources:
 
@@ -26,11 +26,11 @@ The sheet contains the info about Coworkrs' beer, and is maintained by anyone in
 
 To find the BIN, navigate to [Untappd's website](untappd.com/breweries), and use their search bar to locate the beer you're looking for.
 
-![Untappd search](http://thereboot.github.io/rebrews/img/readme/search.png)
+![Untappd search](http://thereboot.github.io/ws/img/readme/search.png)
 
 Click the beer from the search dropdown menu, to navigate to the beer's page. The BIN is located in this page's URL. It's a string of numbers _(usually 3–6 digits)_ at the end of the URL.
 
-![Untappd beer page](http://thereboot.github.io/rebrews/img/readme/bin.png)
+![Untappd beer page](http://thereboot.github.io/ws/img/readme/bin.png)
 
 ##Untappd API
 Beer data is pulled from the Untapped API with the BIN. A request is made each time the page is loaded, and the info isn't stored anywhere. This isn't the smartest way of accomplishing this task, particularly because Untappd limits the number of API calls each key can make:
