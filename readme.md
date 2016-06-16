@@ -4,7 +4,7 @@ Rebrews is a simple application to keep you up to date with what's on tap at Cow
 
 The content is pulled from two sources:
 
-1. A **Google Sheet** with basic infomation about Coworkrs' offerings.
+1. A **[Google Sheet](https://docs.google.com/spreadsheets/d/1kwgYEHQT0BPk_-pSerQDmLQslBwceMN93LXfFSdwQu8/edit#gid=0)** with basic infomation about Coworkrs' offerings.
 
 2. The **[Uptappd API](http://api.untappd.com)**, which provides detailed information about each beer.
 
