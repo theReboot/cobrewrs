@@ -70,6 +70,7 @@ section {
 .intro {
   top: 0;
   background: $lightGrey;
+  flex-direction: column;
 
   @include breakpoint(baby-bear) {
     padding-top: 3.5rem;
@@ -101,6 +102,11 @@ section {
       }
     }
   }
+}
+
+.icon {
+  width: 5rem;
+  margin-bottom: 1rem;
 }
 
 nav {
