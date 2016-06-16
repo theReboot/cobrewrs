@@ -1,8 +1,8 @@
-#Cobrews: The Coworkrs Beer Tracker
+#Cobrewrs: The Coworkrs Beer Tracker
 
 Site here: [bit.ly/coworkrsbeer](http://bit.ly/coworkrsbeer)
 
-Cobrews is a simple application to keep you up to date with what's on tap at Coworkrs Gowanus. It's a static [Jekyll](https://jekyllrb.com/) site, running on [Github pages](https://pages.github.com/).
+Cobrewrs is a simple application to keep you up to date with what's on tap at Coworkrs Gowanus. It's a static [Jekyll](https://jekyllrb.com/) site, running on [Github pages](https://pages.github.com/).
 
 The content is pulled from two sources:
 
