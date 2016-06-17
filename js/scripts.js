@@ -59,7 +59,7 @@ function showInfo(data, tabletop) {
             </div>\
             <div class="status"><p>Status: <strong>' + beerStatus + '</strong></p><p class="small">Last Updated: ' + beerLastUpdated + '</p></div>'
 
-          $(beerModuleContent).hide().appendTo("#beer" + [i]).fadeIn(500);
+          $(beerModuleContent).hide().appendTo("#beer" + [i]).fadeIn(250);
 
           // $("#beer" + [i]).append(beerModuleContent);
         });
@@ -79,7 +79,7 @@ function showInfo(data, tabletop) {
           <div class="status"><p>Status: <strong>' + beerStatus + '</strong></p><p class="small">Last Updated: ' + beerLastUpdated + '</p>\
           </div>'
 
-      $(beerModuleContentEmpty).hide().appendTo("#beer" + [i]).fadeIn(500);
+      $(beerModuleContentEmpty).hide().appendTo("#beer" + [i]).fadeIn(250);
 
       } else {
         setTimeout( callback(i));

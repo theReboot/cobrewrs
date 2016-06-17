@@ -380,3 +380,11 @@ strong {
   margin: 2rem auto;
   width: 20rem;
 }
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 3;
+}
