@@ -135,3 +135,8 @@ $(document).ready(function(){
         }
     });
 });
+
+// Rellax Parallax plug-in
+// https://github.com/dixonandmoe/rellax
+var DEBUG = false;
+var rellax = new Rellax('.rellax');
