@@ -18,6 +18,7 @@ section {
   margin: 0;
   min-height: $floorHeight;
   width: 100%;
+  position: relative;
   background-size: auto $floorHeight;
   background-repeat: no-repeat;
   background-position: center top;
@@ -388,6 +389,14 @@ strong {
   100% {
     background-position: right bottom;
   }
+}
+
+.loadWrap {
+  position: absolute;
+  left: 50%;
+  top: 50vh;
+  transform: translateX(-50%) translateY(-50%);
+  z-index: 3;
 }
 
 .loader {
