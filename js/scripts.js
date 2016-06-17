@@ -35,7 +35,7 @@ function showInfo(data, tabletop) {
           beerRating = beerRating.toFixed(2);
           var beerLabel = data.response.beer.beer_label;
 
-          $("#beer" + [i]).append('<div class="beerSpecs">\
+          var beerModuleContent = '<div class="beerSpecs">\
             <img src="' + beerLabel + '" class="thumb" />' +
             '<h4>' + beerBrewery + '</h4>' +
             '<h2>' + beerName + '</h2>' +
@@ -57,7 +57,10 @@ function showInfo(data, tabletop) {
             </div>\
             </div>\
             <div class="status"><p>Status: <strong>' + beerStatus + '</strong></p><p class="small">Last Updated: ' + beerLastUpdated + '</p></div>'
-          );
+
+            $( ".loadWrap" ).fadeOut( 250 );
+            $(beerModuleContent).hide().appendTo("#beer" + [i]).fadeIn(250);
+
         });
       };
     }
@@ -68,14 +71,16 @@ function showInfo(data, tabletop) {
 
         var beerStatus = data[i].Status;
         var beerLastUpdated = data[i].LastUpdated;
-
-        $("#beer" + [i]).append('<div class="beerSpecs">' +
+        var beerModuleContentEmpty = '<div class="beerSpecs">' +
           '<div class="thumb ooo"></div>\
           <h2 class="ooo">Out of Order</h2>\
           </div>\
           <div class="status"><p>Status: <strong>' + beerStatus + '</strong></p><p class="small">Last Updated: ' + beerLastUpdated + '</p>\
           </div>'
-        );
+
+        $( ".loadWrap" ).fadeOut( 250 );
+        $(beerModuleContentEmpty).hide().appendTo("#beer" + [i]).fadeIn(250);
+
       } else {
         setTimeout( callback(i));
       }
