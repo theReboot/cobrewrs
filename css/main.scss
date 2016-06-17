@@ -110,6 +110,51 @@ section {
   margin-bottom: 1rem;
 }
 
+$iconWavePad: 0rem;
+
+@keyframes iconWave {
+  0% {
+    background-position: left $iconWavePad;
+  }
+  100% {
+    background-position: right $iconWavePad;
+  }
+}
+
+.icon {
+  width: 5rem;
+  height: 5rem;
+  border: 5px solid black;
+  background: url('../img/waves.png') repeat-x left $iconWavePad #fff;
+  background-size: auto 5.2rem;
+  border-radius: 10rem;
+  position: relative;
+  overflow: hidden;
+  animation: iconWave 2.5s infinite;
+  animation-timing-function: linear;
+
+  &:before {
+    content: " ";
+    position: absolute;
+    z-index: 2;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1px solid #000;
+    border-radius: 10rem;
+  }
+
+  > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 1.8rem;
+    z-index: 2;
+  }
+}
+
 nav {
   width: $navWidth;
   height: 100vh;
