@@ -38,6 +38,14 @@ Beer data is pulled from the Untapped API with the BIN. A request is made each t
 
 Better solutions are welcomed!
 
+##Installing Locally
+Cobrewrs uses Jekyll. For more information about how to install and run a site using Jekyll check out their simple and comprehensive [documentation](https://jekyllrb.com/docs/home/).
+
+Note that when running the application locally the baseurl must be removed, like this:
+```
+jekyll serve --baseurl ''
+```
+
 ---
 
 That's about it. Have fun!
