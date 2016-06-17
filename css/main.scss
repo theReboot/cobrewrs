@@ -381,10 +381,36 @@ strong {
   width: 20rem;
 }
 
+@keyframes beerWave {
+  0% {
+    background-position: left bottom;
+  }
+  100% {
+    background-position: right bottom;
+  }
+}
+
 .loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  z-index: 3;
+  width: 10rem;
+  height: 10rem;
+  border: 10px solid black;
+  background: url('../img/loader_beer.png') repeat-x left bottom #fff;
+  background-size: auto 6rem;
+  border-radius: 10rem;
+  position: relative;
+  overflow: hidden;
+  animation: beerWave 2s infinite;
+  animation-timing-function: linear;
+
+  &:before {
+    content: " ";
+    position: absolute;
+    z-index: 2;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 2px solid #000;
+    border-radius: 10rem;
+  }
 }
