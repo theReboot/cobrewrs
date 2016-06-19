@@ -45,7 +45,7 @@ section {
 
   &.lowerLevel {
     background-image: url('../img/0fl_flat.png');
-    margin-bottom: $introHeight;
+    margin-bottom: $conclusionHeight;
 
     @include breakpoint(baby-bear) {
       margin-bottom: 0;
@@ -57,7 +57,6 @@ section {
 .conclusion {
   display: flex;
   width: 100%;
-  height: $introHeight;
   position: fixed;
   z-index: -1;
   justify-content: center;
@@ -70,6 +69,7 @@ section {
 
 .intro {
   top: 0;
+  height: $introHeight;
   background: $lightGrey;
   flex-direction: column;
 
@@ -85,6 +85,7 @@ section {
 .conclusion {
   bottom: 0;
   flex-direction: column;
+  height: $conclusionHeight;
   background: $blue;
 
   h1 {
@@ -112,26 +113,29 @@ section {
 
 $iconWavePad: 0rem;
 
-@keyframes iconWave {
-  0% {
-    background-position: left $iconWavePad;
-  }
-  100% {
-    background-position: right $iconWavePad;
-  }
-}
+// removed icon BG waves
+// @keyframes iconWave {
+//   0% {
+//     background-position: left $iconWavePad;
+//   }
+//   100% {
+//     background-position: right $iconWavePad;
+//   }
+// }
 
 .icon {
   width: 5rem;
   height: 5rem;
   border: 5px solid black;
-  background: url('../img/waves.png') repeat-x left $iconWavePad #fff;
-  background-size: auto 5.2rem;
+  // removed icon BG waves
+  // background: url('../img/waves.png') repeat-x left $iconWavePad #fff;
+  // background-size: auto 5.2rem;
   border-radius: 10rem;
   position: relative;
   overflow: hidden;
-  animation: iconWave 2.5s infinite;
-  animation-timing-function: linear;
+  // removed icon BG waves
+  // animation: iconWave 2.5s infinite;
+  // animation-timing-function: linear;
 
   &:before {
     content: " ";
