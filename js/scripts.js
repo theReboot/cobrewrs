@@ -1,8 +1,8 @@
-window.onload = function() { init() };
+//window.onload = function() { init() };
 
 // global var
 var requestParameters = '?client_id=7665C24D5D9B86BD78146E89DED1A50440A56D43&client_secret=C5F5D761BB5AFFBB02A05F7C23A86AAC157CECE0';
-var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1kwgYEHQT0BPk_-pSerQDmLQslBwceMN93LXfFSdwQu8/pubhtml';
+var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1DhV1OK7NEY3CqJ4ePth48nW9CecNrtz4QdK4xedGtDM/pubhtml';
 
 function init() {
   Tabletop.init( { key: public_spreadsheet_url,
@@ -89,6 +89,65 @@ function showInfo(data, tabletop) {
 
 }
 
+// http://stackoverflow.com/questions/5004233/jquery-ajax-post-example-with-php/5004276#5004276
+// Variable to hold request
+var request;
+var sheetScript = "https://script.google.com/macros/s/AKfycbz7-8yw-9_bf3FqjwlDO6wd80NR51WyGotYQAg6_iUE55u3ZOmw/exec";
+
+// Bind to the submit event of our form
+$("#foo").submit(function(event){
+
+    // Abort any pending request
+    if (request) {
+        request.abort();
+    }
+    // setup some local variables
+    var $form = $(this);
+
+    // Let's select and cache all the fields
+    var $inputs = $form.find("input, select, button, textarea");
+
+    // Serialize the data in the form
+    var serializedData = $form.serialize();
+
+    // Let's disable the inputs for the duration of the Ajax request.
+    // Note: we disable elements AFTER the form data has been serialized.
+    // Disabled form elements will not be serialized.
+    $inputs.prop("disabled", true);
+
+    // Fire off the request to /form.php
+    request = $.ajax({
+        url: sheetScript,
+        type: "post",
+        data: serializedData
+    });
+
+    // Callback handler that will be called on success
+    request.done(function (response, textStatus, jqXHR){
+        // Log a message to the console
+        console.log("Hooray, it worked!");
+    });
+
+    // Callback handler that will be called on failure
+    request.fail(function (jqXHR, textStatus, errorThrown){
+        // Log the error to the console
+        console.error(
+            "The following error occurred: " +
+            textStatus, errorThrown
+        );
+    });
+
+    // Callback handler that will be called regardless
+    // if the request failed or succeeded
+    request.always(function () {
+        // Reenable the inputs
+        $inputs.prop("disabled", false);
+    });
+
+    // Prevent default posting of form
+    event.preventDefault();
+});
+
 // adapted from this: http://callmenick.com/post/single-page-site-with-smooth-scrolling-highlighted-link-and-fixed-navigation
 
 $(document).ready(function(){
@@ -134,4 +193,29 @@ $(document).ready(function(){
             }
         }
     });
+});
+
+var searchURL = 'https://api.untappd.com/v4/search/beer' + requestParameters;
+
+$("#searchterm").keyup(function(e){
+  var q = $("#searchterm").val();
+  $.getJSON(searchURL,
+  {
+    q: q,
+    limit: 5
+  },
+  function(data) {
+    $("#results").empty();
+    $("#results").append(
+      "Results for <b>" + q + "</b>"
+    );
+    $.each(data.response.beers.items, function(i,item){
+      // i think this works, but my api key has reached limit for the hour :(
+      console.log(item[i].beer_name)
+      $("#results").append(
+        //"<div><a href='http://en.wikipedia.org/wiki/" + encodeURIComponent(item.title) + "'>" + item.title + "</a>" + item.snippet + "</div>"
+        '<div>' + item[i].beer_name + '</div>'
+      );
+    });
+  });
 });
