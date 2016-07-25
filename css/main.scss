@@ -222,6 +222,10 @@ nav {
 
 // this is the individual beer module
 
+.beerWrap {
+  position: relative;
+}
+
 .beer {
   width: 23rem;
   margin: 0 2rem;
@@ -471,4 +475,22 @@ strong {
 
 .hidden {
   display: none;
+}
+
+.beerEdit {
+  position: absolute;
+  top: -.5rem;
+  right: 0;
+  z-index: 10;
+  width: 6rem;
+  height: 6rem;
+  background: $blue;
+  border-radius: 100%;
+  box-shadow: none;
+  padding: 0;
+  transition: .3s ease;
+
+  &::before {
+    content: 'edit';
+  }
 }
