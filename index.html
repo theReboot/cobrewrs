@@ -54,11 +54,12 @@ layout: home
         <input id="basementleft" name="basementleft" type="text" value="" />
         <input type="submit" value="Send" />
       </form> -->
-      <form id="foo">
-        <label for="searchterm">WIKIPEDIA</label>
+      <form class="search">
+        <label for="searchterm">What Beer?</label>
         <input id="searchterm" name="searchterm" type="text" value="" />
-        <div id="results">[none]</div>
-
+        <input class="hidden" name="beerid" type="text" value="" />
+        <div class="resultsWrap">
+          <div class="results" id="results"></div>
         </div>
       </form>
     </div>

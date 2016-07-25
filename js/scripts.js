@@ -1,4 +1,4 @@
-//window.onload = function() { init() };
+window.onload = function() { init() };
 
 // global var
 var requestParameters = '?client_id=7665C24D5D9B86BD78146E89DED1A50440A56D43&client_secret=C5F5D761BB5AFFBB02A05F7C23A86AAC157CECE0';
@@ -58,8 +58,8 @@ function showInfo(data, tabletop) {
             </div>\
             <div class="status"><p>Status: <strong>' + beerStatus + '</strong></p><p class="small">Last Updated: ' + beerLastUpdated + '</p></div>'
 
-            $( ".loadWrap" ).fadeOut( 250 );
-            $(beerModuleContent).hide().appendTo("#beer" + [i]).fadeIn(250);
+          $( ".loadWrap" ).fadeOut( 250 );
+          $(beerModuleContent).hide().appendTo("#beer" + [i]).fadeIn(250);
 
         });
       };
@@ -209,15 +209,14 @@ $("#searchterm").keyup(function(e){
     $("#results").append(
       "Results for <b>" + q + "</b>"
     );
-    console.log(data.response.beers)
     $.each(data.response.beers.items, function(i,item){
-      console.log(item.beer.beer_name)
+      var beerID = item.beer.bid;
+      var beerName = item.beer.beer_name;
+      var breweryName = item.brewery.brewery_name;
       $("#results").append(
-        '<div>\
-          <h4>' +
-            item.beer.beer_name +
-          '</h4>\
-          <span>' + item.brewery.brewery_name + '</span> \
+        '<div class="result">\
+          <h4>' + beerName + '</h4>\
+          <span>' + breweryName + '</span> \
         </div>'
       );
     });
