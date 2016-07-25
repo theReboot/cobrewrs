@@ -224,6 +224,67 @@ nav {
 
 .beerWrap {
   position: relative;
+
+  .beerEditButton {
+    position: absolute;
+    top: -.5rem;
+    right: 0;
+    z-index: 10;
+    width: 6rem;
+    height: 6rem;
+    background: $blue;
+    border-radius: 100%;
+    box-shadow: none;
+    padding: 0;
+    transition: .3s ease;
+
+    &::before {
+      content: 'edit';
+      font-size: 2rem;
+    }
+  }
+
+  .beerEditPanel {
+    position: absolute;
+    background: $blue;
+    color: #fff;
+    top: 40px;
+    right: -70px;
+    z-index: 10;
+    width: 140px;
+    height: 140px;
+    padding: 0;
+    transition: .3s ease;
+  }
+
+  &.activeEdit {
+    .beerEditPanel {
+      top: 0;
+      left: 0;
+      opacity: 1;
+      width: 100%;
+      max-width: 23rem;
+      height: auto;
+      border-radius: 5px;
+      padding: 60px 0 40px;
+      overflow: hidden;
+    }
+    .beerEditButton {
+      position: absolute;
+      top: 40px;
+      right: -70px;
+      box-shadow: none;
+      transition: transform .3s ease;
+
+      &:before {
+        content: '';
+      }
+    }
+
+    .beer {
+      opacity: .3;
+    }
+  }
 }
 
 .beer {
@@ -475,22 +536,4 @@ strong {
 
 .hidden {
   display: none;
-}
-
-.beerEdit {
-  position: absolute;
-  top: -.5rem;
-  right: 0;
-  z-index: 10;
-  width: 6rem;
-  height: 6rem;
-  background: $blue;
-  border-radius: 100%;
-  box-shadow: none;
-  padding: 0;
-  transition: .3s ease;
-
-  &::before {
-    content: 'edit';
-  }
 }

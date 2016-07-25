@@ -14,18 +14,21 @@ layout: home
 
 <section class="floor secondFloor" id="secondFloor">
 
-    <div class="loadWrap">
+    <!-- <div class="loadWrap">
       <div class="loader"></div>
-    </div>
+    </div> -->
 
     <div class="infoWrap">
       <div class="beerWrap">
-        <div id="beer0" class="beer"></div>
-        <div class="beerEdit toggle">
-          <h1>Edit info here</h1>
+        <div id="beer0" class="beer">
+          {% include beerModuleTemplate.html %}
         </div>
+        {% include editpanel.html %}
       </div>
-      <div id="beer1" class="beer"></div>
+      <div class="beerWrap">
+        <div id="beer1" class="beer"></div>
+        {% include editpanel.html %}
+      </div>
     </div>
 
 </section>
@@ -37,10 +40,9 @@ layout: home
     </div>
 
     <div class="infoWrap">
-      <div id="beer2" class="beer">
-        <div class="beerEdit toggle">
-          <h1>Edit info here</h1>
-        </div>
+      <div class="beerWrap">
+        <div id="beer2" class="beer"></div>
+        {% include editpanel.html %}
       </div>
     </div>
 
@@ -53,8 +55,14 @@ layout: home
     </div>
 
     <div class="infoWrap">
-      <div id="beer3" class="beer"></div>
-      <div id="beer4" class="beer"></div>
+      <div class="beerWrap">
+        <div id="beer3" class="beer"></div>
+        {% include editpanel.html %}
+      </div>
+      <div class="beerWrap">
+        <div id="beer4" class="beer"></div>
+        {% include editpanel.html %}
+      </div>
     </div>
 
     <div class="formWrap">
@@ -63,14 +71,6 @@ layout: home
         <input id="basementleft" name="basementleft" type="text" value="" />
         <input type="submit" value="Send" />
       </form> -->
-      <form class="search">
-        <label for="searchterm">What Beer?</label>
-        <input id="searchterm" name="searchterm" type="text" value="" />
-        <input class="hidden" name="beerid" type="text" value="" />
-        <div class="resultsWrap">
-          <div class="results" id="results"></div>
-        </div>
-      </form>
     </div>
 
 </section>
