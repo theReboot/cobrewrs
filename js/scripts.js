@@ -209,12 +209,16 @@ $("#searchterm").keyup(function(e){
     $("#results").append(
       "Results for <b>" + q + "</b>"
     );
+    console.log(data.response.beers)
     $.each(data.response.beers.items, function(i,item){
-      // i think this works, but my api key has reached limit for the hour :(
-      console.log(item[i].beer_name)
+      console.log(item.beer.beer_name)
       $("#results").append(
-        //"<div><a href='http://en.wikipedia.org/wiki/" + encodeURIComponent(item.title) + "'>" + item.title + "</a>" + item.snippet + "</div>"
-        '<div>' + item[i].beer_name + '</div>'
+        '<div>\
+          <h4>' +
+            item.beer.beer_name +
+          '</h4>\
+          <span>' + item.brewery.brewery_name + '</span> \
+        </div>'
       );
     });
   });
