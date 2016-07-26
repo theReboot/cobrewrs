@@ -38,32 +38,32 @@ function showInfo(data, tabletop) {
           $( ".loadWrap" ).fadeOut( 250 );
           // $(beerModuleContent).hide().appendTo("#beer" + [i]).fadeIn(250);
 
-          $('#beer' + [i] + ' .beerThumb').empty();
+          $('#beer' + [i] + ' .beerThumb').hide().empty();
           $('#beer' + [i] + ' .beerThumb').append(
             '<img src="' + beerLabel + '" class="thumb" />'
-          );
+          ).fadeIn(250);
 
-          $('#beer' + [i] + ' .beerBrewery').empty();
+          $('#beer' + [i] + ' .beerBrewery').hide().empty();
           $('#beer' + [i] + ' .beerBrewery').append(
             beerBrewery
-          );
+          ).fadeIn(250);
 
-          $('#beer' + [i] + ' .beerName').empty();
+          $('#beer' + [i] + ' .beerName').hide().empty();
           $('#beer' + [i] + ' .beerName').append(
             beerName
-          );
+          ).fadeIn(250);
 
-          $('#beer' + [i] + ' .beerABV').empty();
+          $('#beer' + [i] + ' .beerABV').hide().empty();
           $('#beer' + [i] + ' .beerABV').append(
-            beerABV
-          );
+            beerABV + '%'
+          ).fadeIn(250);
 
-          $('#beer' + [i] + ' .beerIBU').empty();
+          $('#beer' + [i] + ' .beerIBU').hide().empty();
           $('#beer' + [i] + ' .beerIBU').append(
             beerIBU
-          );
+          ).fadeIn(250);
 
-          $('#beer' + [i] + ' .star-rating').empty();
+          $('#beer' + [i] + ' .star-rating').hide().empty();
           $('#beer' + [i] + ' .star-rating').append(
             '<div class="star-rating-top" style="width:' + beerRatingPercent + '%">\
               <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>\
@@ -71,12 +71,12 @@ function showInfo(data, tabletop) {
             <div class="star-rating-bottom">\
               <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>\
             </div>'
-          );
+          ).fadeIn(250);
 
-          $('#beer' + [i] + ' .beerRating').empty();
+          $('#beer' + [i] + ' .beerRating').hide().empty();
           $('#beer' + [i] + ' .beerRating').append(
             beerRating + '/5.00'
-          );
+          ).fadeIn(250);
 
         });
       };

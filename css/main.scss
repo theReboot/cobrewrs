@@ -251,8 +251,16 @@ nav {
 
     &::before {
       content: 'edit';
-      font-size: 2rem;
+      font-size: 1rem;
+      font-family: $sansSerif;
+      text-transform: uppercase;
+      font-weight: 700;
       color: #fff;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      left: 50%;
+      transition: .2s all ease;
     }
   }
 
@@ -277,9 +285,11 @@ nav {
     }
     .beerEditButton {
       opacity: 1;
+      background: #fff;
 
       &:before {
         content: 'X';
+        color: $blue;
       }
     }
 
