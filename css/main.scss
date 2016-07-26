@@ -273,15 +273,17 @@ nav {
     z-index: 5;
     width: 100%;
     max-width: 23rem;
-    height: auto;
-    min-height: 18rem;
-    padding: 2rem;
-    display: none;
+    height: 0;
+    opacity: 0;
+    transition: .3s all ease;
   }
 
   &.activeEdit {
     .beerEditPanel {
-      display: block;
+      height: auto;
+      min-height: 18rem;
+      padding: 2rem;
+      opacity: 1;
     }
     .beerEditButton {
       opacity: 1;
@@ -294,18 +296,12 @@ nav {
     }
 
     .beer {
-      opacity: .3;
+
     }
   }
 }
 
 .beer {
-  // width: 23rem;
-  // margin: 0 2rem;
-  // overflow: hidden;
-  // border-radius: 0 0 2rem 2rem;
-  // box-shadow: 3px 4px 7px rgba(0,0,0,.3);
-  // text-rendering: optimizeLegibility;
 
   @include breakpoint(baby-bear) {
     width: 100%;
@@ -543,18 +539,51 @@ strong {
   }
 }
 
+.search {
+  position: relative;
+
+  input[type="submit"] {
+    background: none;
+    border: 2px solid #fff;
+    color: #fff;
+    margin: 2rem auto 0;
+    text-align: center;
+    display: block;
+    font-size: 1.2rem;
+    padding: .5rem 1rem;
+  }
+}
+
 // live searchbar
 .resultsWrap {
-  position: relative;
+  position: absolute;
+  width: 100%;
 }
 
 .results {
-  position: absolute;
+  width: 100%;
+  transition: .2s all ease;
 }
 
 .result {
   background: #fff;
   border-bottom: 1px solid #000;
+  padding: .7rem;
+  transition: .2s all ease;
+
+  &:hover {
+    background: $lightGrey;
+  }
+
+  // beer name
+  h4 {
+    color: #000;
+  }
+
+  // brewery
+  span {
+    color: $grey;
+  }
 }
 
 .hidden {

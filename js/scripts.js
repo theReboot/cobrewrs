@@ -1,4 +1,4 @@
-window.onload = function() { init() };
+//window.onload = function() { init() };
 
 // global var
 var requestParameters = '?client_id=7665C24D5D9B86BD78146E89DED1A50440A56D43&client_secret=C5F5D761BB5AFFBB02A05F7C23A86AAC157CECE0';
@@ -167,28 +167,31 @@ $("#foo").submit(function(event){
 
 var searchURL = 'https://api.untappd.com/v4/search/beer' + requestParameters;
 
-$('#searchterm').keyup(function(e){
-  var q = $("#searchterm").val();
+$('.searchterm').keyup(function(e){
+  var q = $(this).val();
+  var results = $(this).parent('form').find('.resultsWrap .results');
+
+  function addToField() {
+    alert('hello');
+  }
+
   $.getJSON(searchURL,
   {
     q: q,
     limit: 5
   },
   function(data) {
-    $("#results").empty();
-    $("#results").append(
-      "Results for <b>" + q + "</b>"
-    );
+    $(results).empty();
     $.each(data.response.beers.items, function(i,item){
       var beerID = item.beer.bid;
       var beerName = item.beer.beer_name;
       var breweryName = item.brewery.brewery_name;
-      $("#results").append(
-        '<div class="result">\
-          <h4>' + beerName + '</h4>\
-          <span>' + breweryName + '</span> \
-        </div>'
-      );
+      var result = '<div class="result">\
+        <h4>' + beerName + '</h4>\
+        <span>' + breweryName + '</span> \
+      </div>'
+      $(results).append(result);
+      $(result).click(addToField);
     });
   });
 });
