@@ -26,7 +26,9 @@ layout: home
         {% include editpanel.html %}
       </div>
       <div class="beerWrap">
-        <div id="beer1" class="beer"></div>
+        <div id="beer1" class="beer">
+          {% include beerModuleTemplate.html %}
+        </div>
         {% include editpanel.html %}
       </div>
     </div>
@@ -35,13 +37,15 @@ layout: home
 
 <section class="floor firstFloor" id="firstFloor">
 
-    <div class="loadWrap">
+    <!-- <div class="loadWrap">
       <div class="loader"></div>
-    </div>
+    </div> -->
 
     <div class="infoWrap">
       <div class="beerWrap">
-        <div id="beer2" class="beer"></div>
+        <div id="beer2" class="beer">
+          {% include beerModuleTemplate.html %}
+        </div>
         {% include editpanel.html %}
       </div>
     </div>
@@ -50,17 +54,21 @@ layout: home
 
 <section class="floor lowerLevel" id="lowerLevel">
 
-    <div class="loadWrap">
+    <!-- <div class="loadWrap">
       <div class="loader"></div>
-    </div>
+    </div> -->
 
     <div class="infoWrap">
       <div class="beerWrap">
-        <div id="beer3" class="beer"></div>
+        <div id="beer3" class="beer">
+          {% include beerModuleTemplate.html %}
+        </div>
         {% include editpanel.html %}
       </div>
       <div class="beerWrap">
-        <div id="beer4" class="beer"></div>
+        <div id="beer4" class="beer">
+          {% include beerModuleTemplate.html %}
+        </div>
         {% include editpanel.html %}
       </div>
     </div>

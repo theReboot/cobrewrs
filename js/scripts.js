@@ -35,31 +35,48 @@ function showInfo(data, tabletop) {
           beerRating = beerRating.toFixed(2);
           var beerLabel = data.response.beer.beer_label;
 
-          var beerModuleContent = '<div class="beerSpecs">\
-            <img src="' + beerLabel + '" class="thumb" />' +
-            '<h4>' + beerBrewery + '</h4>' +
-            '<h2>' + beerName + '</h2>' +
-            '<div class="grid">\
-            <div class="col-1-4 beerMeta">\
-            <p class="label">ABV</p><p>' + beerABV + '%</p>\
-            </div>\
-            <div class="col-1-4 beerMeta">\
-            <p class="label">IBU</p><p>' + beerIBU + '</p>\
-            </div>\
-            <div class="col-1-2 beerMeta">\
-            <p class="label">Rating:</p>\
-            <div class="star-rating">\
-              <div class="star-rating-top" style="width:' + beerRatingPercent + '%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>\
-              <div class="star-rating-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>\
-            </div>\
-            <p class="small">' + beerRating + '/5.00</p>\
-            </div>\
-            </div>\
-            </div>\
-            <div class="status"><p>Status: <strong>' + beerStatus + '</strong></p><p class="small">Last Updated: ' + beerLastUpdated + '</p></div>'
-
           $( ".loadWrap" ).fadeOut( 250 );
-          $(beerModuleContent).hide().appendTo("#beer" + [i]).fadeIn(250);
+          // $(beerModuleContent).hide().appendTo("#beer" + [i]).fadeIn(250);
+
+          $('#beer' + [i] + ' .beerThumb').empty();
+          $('#beer' + [i] + ' .beerThumb').append(
+            '<img src="' + beerLabel + '" class="thumb" />'
+          );
+
+          $('#beer' + [i] + ' .beerBrewery').empty();
+          $('#beer' + [i] + ' .beerBrewery').append(
+            beerBrewery
+          );
+
+          $('#beer' + [i] + ' .beerName').empty();
+          $('#beer' + [i] + ' .beerName').append(
+            beerName
+          );
+
+          $('#beer' + [i] + ' .beerABV').empty();
+          $('#beer' + [i] + ' .beerABV').append(
+            beerABV
+          );
+
+          $('#beer' + [i] + ' .beerIBU').empty();
+          $('#beer' + [i] + ' .beerIBU').append(
+            beerIBU
+          );
+
+          $('#beer' + [i] + ' .star-rating').empty();
+          $('#beer' + [i] + ' .star-rating').append(
+            '<div class="star-rating-top" style="width:' + beerRatingPercent + '%">\
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>\
+            </div>\
+            <div class="star-rating-bottom">\
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>\
+            </div>'
+          );
+
+          $('#beer' + [i] + ' .beerRating').empty();
+          $('#beer' + [i] + ' .beerRating').append(
+            beerRating + '/5.00'
+          );
 
         });
       };
@@ -150,7 +167,7 @@ $("#foo").submit(function(event){
 
 var searchURL = 'https://api.untappd.com/v4/search/beer' + requestParameters;
 
-$("#searchterm").keyup(function(e){
+$('#searchterm').keyup(function(e){
   var q = $("#searchterm").val();
   $.getJSON(searchURL,
   {
@@ -217,11 +234,11 @@ $(document).ready(function(){
   });
 
   $('.toggle').on('click', function() {
-    $(this).parent('.beerWrap').stop().addClass('activeEdit');
+    if ($(this).parent('.beerWrap').hasClass('activeEdit')) {
+      $(this).closest('.beerWrap').stop().removeClass('activeEdit');
+    }
+    else {
+      $(this).parent('.beerWrap').stop().addClass('activeEdit');
+    }
   });
-
-  $('.close').on('click', function() {
-    $(this).closest('.beerWrap').stop().removeClass('activeEdit');
-  });
-
 });
