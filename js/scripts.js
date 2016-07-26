@@ -1,4 +1,4 @@
-//window.onload = function() { init() };
+window.onload = function() { init() };
 
 // global var
 var requestParameters = '?client_id=7665C24D5D9B86BD78146E89DED1A50440A56D43&client_secret=C5F5D761BB5AFFBB02A05F7C23A86AAC157CECE0';
@@ -242,6 +242,25 @@ $(document).ready(function(){
     }
     else {
       $(this).parent('.beerWrap').stop().addClass('activeEdit');
+    }
+  });
+  $('.searchterm').focus( function() {
+    var results = $(this).parent('form').find('.resultsWrap .results');
+    if ((results).hasClass('focused')) {
+      // do nothing
+    }
+    else {
+      $(results).addClass('focused')
+    }
+  });
+
+  $('.searchterm').focusout( function() {
+    var results = $(this).parent('form').find('.resultsWrap .results');
+    if ((results).hasClass('focused')) {
+      $(results).removeClass('focused')
+    }
+    else {
+      // do nothing
     }
   });
 });
