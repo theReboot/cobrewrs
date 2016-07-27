@@ -1,11 +1,21 @@
 <div class="beerEditButton toggle"></div>
 <div class="beerEditPanel">
   <form class="search">
-    <label for="searchterm">What's on tap here?</label>
-    <input id="searchterm" class="searchterm" name="searchterm" type="text" value="" />
-    <div class="resultsWrap">
-      <div class="results" id="results"></div>
+    <div class="inputContainer">
+      <input min="3" id="searchterm" class="searchterm" name="searchterm" type="text" value="" required />
+      <label for="searchterm">What's on tap here?</label>
+      <div class="bar"></div>
+      <div class="resultsWrap">
+        <div class="results" id="results"></div>
+      </div>
     </div>
-    <input type="submit" value="Save" />
+    <div class="inputContainer">
+      <input id="status--field" class="status--field" name="status--field" required type="text" value="" />
+      <label for="status--field">What's the status?</label>
+      <div class="bar"></div>
+    </div>
+    <div class="inputContainer">
+      <input type="submit" value="Save" />
+    </div>
   </form>
 </div>

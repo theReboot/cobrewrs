@@ -297,6 +297,90 @@ nav {
     .beer {
 
     }
+
+    .status {
+      opacity: 0;
+      height: 0;
+    }
+  }
+}
+
+// inputs
+
+.inputContainer {
+  position: relative;
+  margin-bottom: 1.5rem;
+
+  input {
+    outline: none;
+    z-index: 1;
+    position: relative;
+    background: none;
+    width: 100%;
+    height: 60px;
+    border: 0;
+    color: #fff;
+    font-size: 1rem;
+
+    &:focus {
+
+      ~ label {
+        color: #9d9d9d;
+        transform: translate(-12%, -50%) scale(0.75);
+      }
+
+      ~ .bar {
+        &:before,
+        &:after {
+          width: 50%;
+        }
+      }
+    }
+
+    &:valid {
+      ~ label {
+        color: #9d9d9d;
+        transform: translate(-12%, -50%) scale(0.75);
+      }
+    }
+  }
+
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #757575;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 60px;
+    transition: 0.2s all ease;
+  }
+
+  .bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: #757575;
+    width: 100%;
+    height: 1px;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      background: #fff;
+      width: 0;
+      height: 2px;
+      transition: .2s all ease;
+    }
+
+    &:before {
+      left: 50%;
+    }
+
+    &:after {
+      right: 50%;
+    }
   }
 }
 
@@ -312,14 +396,6 @@ nav {
   padding: 1rem 2rem;
   background: rgba(255,255,255,1);
   min-height: 18rem;
-}
-
-.searchterm {
-  display: block;
-  width: 100%;
-  font-size: 1.5rem;
-  padding: .7rem;
-  margin-top: 1rem;
 }
 
 .thumb {
@@ -341,6 +417,7 @@ nav {
   background: $blue;
   padding: .8rem 2rem 1rem;
   border-radius: 0 0 2rem 2rem;
+  transition: .2s all ease;
 
   p {
     color: #fff;
@@ -551,6 +628,13 @@ strong {
     display: block;
     font-size: 1.2rem;
     padding: .5rem 1rem;
+    max-width: 10rem;
+    opacity: .6;
+    transition: .2s all ease;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
