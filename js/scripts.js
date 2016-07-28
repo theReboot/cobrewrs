@@ -235,7 +235,7 @@ $(document).ready(function(){
     var beerWrap = $(this).parent('.beerWrap');
     if ($(beerWrap).hasClass('activeEdit')) {
       $(beerWrap).stop().removeClass('activeEdit');
-      $(beerWrap).find('.beerEditPanel form .inputContainer input').empty();
+      $(beerWrap).find('.beerEditPanel form .inputContainer input').val('');
     }
     else {
       $(beerWrap).stop().addClass('activeEdit');
