@@ -171,10 +171,6 @@ $('.searchterm').keyup(function(e){
   var q = $(this).val();
   var results = $(this).parent('.inputContainer').parent('form').find('.inputContainer .resultsWrap .results');
 
-  function addToField() {
-    alert('hello');
-  }
-
   $.getJSON(searchURL,
   {
     q: q,
@@ -191,7 +187,6 @@ $('.searchterm').keyup(function(e){
         <span>' + breweryName + '</span> \
       </div>'
       $(results).append(result);
-      $(result).click(addToField);
     });
   });
 });
@@ -265,4 +260,5 @@ $(document).ready(function(){
       // do nothing
     }
   });
+
 });
