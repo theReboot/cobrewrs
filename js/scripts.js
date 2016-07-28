@@ -169,11 +169,7 @@ var searchURL = 'https://api.untappd.com/v4/search/beer' + requestParameters;
 
 $('.searchterm').keyup(function(e){
   var q = $(this).val();
-  var results = $(this).parent('form').find('.resultsWrap .results');
-
-  function addToField() {
-    alert('hello');
-  }
+  var results = $(this).parent('.inputContainer').parent('form').find('.inputContainer .resultsWrap .results');
 
   $.getJSON(searchURL,
   {
@@ -191,7 +187,6 @@ $('.searchterm').keyup(function(e){
         <span>' + breweryName + '</span> \
       </div>'
       $(results).append(result);
-      $(result).click(addToField);
     });
   });
 });
@@ -237,15 +232,17 @@ $(document).ready(function(){
   });
 
   $('.toggle').on('click', function() {
-    if ($(this).parent('.beerWrap').hasClass('activeEdit')) {
-      $(this).closest('.beerWrap').stop().removeClass('activeEdit');
+    var beerWrap = $(this).parent('.beerWrap');
+    if ($(beerWrap).hasClass('activeEdit')) {
+      $(beerWrap).stop().removeClass('activeEdit');
+      $(beerWrap).find('.beerEditPanel form .inputContainer input').empty();
     }
     else {
-      $(this).parent('.beerWrap').stop().addClass('activeEdit');
+      $(beerWrap).stop().addClass('activeEdit');
     }
   });
   $('.searchterm').focus( function() {
-    var results = $(this).parent('form').find('.resultsWrap .results');
+    var results = $(this).parent('.inputContainer').parent('form').find('.resultsWrap .results');
     if ((results).hasClass('focused')) {
       // do nothing
     }
@@ -255,7 +252,7 @@ $(document).ready(function(){
   });
 
   $('.searchterm').focusout( function() {
-    var results = $(this).parent('form').find('.resultsWrap .results');
+    var results = $(this).parent('.inputContainer').parent('form').find('.resultsWrap .results');
     if ((results).hasClass('focused')) {
       $(results).removeClass('focused')
     }
@@ -263,4 +260,5 @@ $(document).ready(function(){
       // do nothing
     }
   });
+
 });
